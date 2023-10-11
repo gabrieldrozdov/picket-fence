@@ -1,27 +1,62 @@
 let capture;
 
 function setup() {
-	var canvas = createCanvas(1920, 1080);
+	var canvas = createCanvas(1920, 1440);
 	capture = createCapture({ video: { facingMode: "environment" } });
-	capture.size(1920, 1080);
-	capture.hide();
-	canvas.parent('parent')
+	// capture.size(1920, 1440);
+	// capture.hide();
+	canvas.parent('parent');
+	noStroke();
+	fill(0);
 }
 
+let offset = 0;
+let properties = {
+	unit: 3,
+	frames: 5,
+	speed: 1,
+}
 function draw() {
-	background(255);
-	image(capture, 0, 0, 1920, 1080);
+	// Move the rectangles
+	offset += properties['speed']/10;
+	if (offset >= width) {
+		offset = 0;
+	}
+	image(capture, 0, 0, 1920, 1440);
+
+	// Draw the rectangles
+	for (let i=-width; i<width*2; i++) {
+		rect(offset+i*properties['frames']*properties['unit'], 0, properties['unit']*(properties['frames']-1), height);
+	}
 }
 
+// Update values on input
+function updateValue(property, value) {
+	properties[property] = value;
+}
+
+// Prevent typing out of range
+function imposeMinMax(e){
+	if (e.value != "") {
+		if (parseInt(e.value) < parseInt(e.min)){
+			e.value = e.min;
+		}
+		if (parseInt(e.value) > parseInt(e.max)){
+			e.value = e.max;
+		}
+	} else {
+		e.value = e.min;
+	}
+}
 
 // window.addEventListener( 
 // 	'click', async function () { 
 
 // 		let features = { 
-// 			audio: true, 
+// 			audio: false, 
 // 			video: { 
-// 				width: { ideal: 1800 }, 
-// 				height: { ideal: 900 } 
+// 				width: { ideal: 1920 }, 
+// 				height: { ideal: 1080 } 
 // 			} 
 // 		}; 
 
