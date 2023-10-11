@@ -56,10 +56,18 @@ canvas {
 	background-color: black;
 	height: 30px;
 	font-size: 18px;
-	padding: 5px 20px 5px 33px;
+	padding: 5px 20px 5px 20px;
 	font-family: 'Arial Narrow', sans-serif;
 	font-weight: bold;
 	text-align: center;
+	border-radius: 0;
+}
+.controls input:focus {
+	outline: unset;
+}
+input[type='number']::-webkit-inner-spin-button, 
+input[type='number']::-webkit-outer-spin-button { 
+    opacity: 1;
 }
 @media only screen and (max-width: 600px) {
 	.controls {
