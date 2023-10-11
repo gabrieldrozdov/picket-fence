@@ -6,6 +6,8 @@ function setup() {
 		video: { facingMode: "environment" },
 		audio: false,
 	});
+	// canvas.width = 1280;
+	// canvas.height = 720;
 	capture.size(1280, 720);
 	capture.hide();
 	canvas.parent('parent');
