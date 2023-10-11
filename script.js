@@ -8,7 +8,7 @@ function setup() {
 	// });
 	// capture.size(1920, 1440);
 	// capture.hide();
-	canvas.parent('parent');
+	// canvas.parent('parent');
 	noStroke();
 	fill(0);
 }
