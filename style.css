@@ -22,11 +22,12 @@ body {
 	justify-content: center;
 }
 canvas {
-	width: unset !important;
+	/* width: unset !important; */
 	height: 100vmax !important;
-	object-fit: cover;
-	max-height: 100%;
-	max-width: 100%;
+	/* object-fit: cover; */
+	/* max-height: 100%;
+	max-width: 100%; */
+	aspect-ratio: 3/4;
 }
 .controls-toggle {
 	position: absolute;

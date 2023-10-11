@@ -1,14 +1,12 @@
 let capture;
 
 function setup() {
-	var canvas = createCanvas(1280, 720);
+	var canvas = createCanvas(720, 1280);
 	capture = createCapture({
 		video: { facingMode: "environment" },
 		audio: false,
 	});
-	// canvas.width = 1280;
-	// canvas.height = 720;
-	capture.size(1280, 720);
+	capture.size(720, 1280);
 	capture.hide();
 	canvas.parent('parent');
 	noStroke();
@@ -25,7 +23,7 @@ let properties = {
 }
 function draw() {
 	background(255);
-	image(capture, 0, 0, 1280, 720);
+	image(capture, 0, 0, 720, 1280);
 
 	let direction = 1;
 	if (!properties['direction']) {
