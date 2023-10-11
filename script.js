@@ -2,8 +2,11 @@ let capture;
 
 function setup() {
 	var canvas = createCanvas(1920, 1440);
-	capture = createCapture(VIDEO);
-	// capture.size(1920, 1440);
+	capture = createCapture({
+		video: { facingMode: "environment" },
+		audio: false,
+	});
+	capture.size(1920, 1440);
 	// capture.hide();
 	canvas.parent('parent');
 	noStroke();
