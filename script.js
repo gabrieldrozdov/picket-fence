@@ -2,10 +2,7 @@ let capture;
 
 function setup() {
 	var canvas = createCanvas(1920, 1440);
-	capture = createCapture({
-		video: { facingMode: "user" },
-		audio: false,
-	});
+	capture = createCapture(VIDEO);
 	// capture.size(1920, 1440);
 	// capture.hide();
 	canvas.parent('parent');
