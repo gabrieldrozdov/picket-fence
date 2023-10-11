@@ -2,13 +2,13 @@ let capture;
 
 function setup() {
 	var canvas = createCanvas(1920, 1440);
-	// capture = createCapture({
-	// 	video: { facingMode: "environment" },
-	// 	audio: false,
-	// });
-	// capture.size(1920, 1440);
-	// capture.hide();
-	// canvas.parent('parent');
+	capture = createCapture({
+		video: { facingMode: "environment" },
+		audio: false,
+	});
+	capture.size(1920, 1440);
+	capture.hide();
+	canvas.parent('parent');
 	noStroke();
 	fill(0);
 }
@@ -22,35 +22,35 @@ let properties = {
 	direction: true
 }
 function draw() {
-	background(255);
-	// image(capture, 0, 0, 1920, 1440);
+	// background(255);
+	image(capture, 0, 0, 1920, 1440);
 
-	let direction = 1;
-	if (!properties['direction']) {
-		direction = -1;
-	}
+	// let direction = 1;
+	// if (!properties['direction']) {
+	// 	direction = -1;
+	// }
 
-	if (properties['orientation']) {
-		// Move the rectangles
-		offset += properties['speed']/10 * direction;
-		if (offset >= width) {
-			offset = 0;
-		}
-		// Draw the rectangles
-		for (let i=-width; i<width*2; i++) {
-			rect(offset+i*properties['frames']*properties['unit'], 0, properties['unit']*(properties['frames']-1), height);
-		}
-	} else {
-		// Move the rectangles
-		offset += properties['speed']/10 * direction;
-		if (offset >= height) {
-			offset = 0;
-		}
-		// Draw the rectangles
-		for (let i=-width; i<width*2; i++) {
-			rect(0, offset+i*properties['frames']*properties['unit'], width, properties['unit']*(properties['frames']-1));
-		}
-	}
+	// if (properties['orientation']) {
+	// 	// Move the rectangles
+	// 	offset += properties['speed']/10 * direction;
+	// 	if (offset >= width) {
+	// 		offset = 0;
+	// 	}
+	// 	// Draw the rectangles
+	// 	for (let i=-width; i<width*2; i++) {
+	// 		rect(offset+i*properties['frames']*properties['unit'], 0, properties['unit']*(properties['frames']-1), height);
+	// 	}
+	// } else {
+	// 	// Move the rectangles
+	// 	offset += properties['speed']/10 * direction;
+	// 	if (offset >= height) {
+	// 		offset = 0;
+	// 	}
+	// 	// Draw the rectangles
+	// 	for (let i=-width; i<width*2; i++) {
+	// 		rect(0, offset+i*properties['frames']*properties['unit'], width, properties['unit']*(properties['frames']-1));
+	// 	}
+	// }
 }
 
 // Update values on input
