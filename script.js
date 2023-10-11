@@ -68,19 +68,41 @@ function imposeMinMax(e){
 			e.value = e.max;
 		}
 	} else {
-		e.value = e.min;
+		// e.value = e.min;
 	}
 }
 
 // Flip orientation
+let orientationBtn = document.querySelector('#orientation');
 function flipOrientation() {
+	if (properties['orientation']) {
+		orientationBtn.innerText = 'VERTICAL';
+	} else {
+		orientationBtn.innerText = 'HORIZONTAL';
+	}
 	properties['orientation'] = !properties['orientation'];
 	offset = 0;
 }
 
 // Flip direction
-function flipDirection() {
+let scrollDirectionBtn = document.querySelector('#scroll-direction');
+function flipScrollDirection() {
+	if (properties['direction']) {
+		scrollDirectionBtn.innerText = 'BACKWARD';
+	} else {
+		scrollDirectionBtn.innerText = 'FORWARD';
+	}
 	properties['direction'] = !properties['direction'];
+}
+
+// Toggle controls
+let controls = document.querySelector('.controls');
+function toggleControls() {
+	if (parseInt(controls.dataset.hide) == 1) {
+		controls.dataset.hide = 0;
+	} else {
+		controls.dataset.hide = 1;
+	}
 }
 
 // window.addEventListener( 

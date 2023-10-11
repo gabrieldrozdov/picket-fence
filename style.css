@@ -3,6 +3,9 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+body {
+	background-color: black;
+}
 .container {
 	position: fixed;
 	top: 0;
@@ -19,29 +22,61 @@
 	justify-content: center;
 }
 canvas {
-	width: 100% !important;
+	/* width: 100% !important;
 	height: 100% !important;
 	object-fit: cover;
 	max-height: 100%;
-	max-width: 100%;
+	max-width: 100%; */
+}
+.controls-toggle {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background-color: black;
+	width: 40px;
+	height: 40px;
+	border: 2px solid white;
+	fill: white;
+	padding: 5px;
+	cursor: pointer;
+	z-index: 999;
+}
+.controls-toggle svg {
+	width: 100%;
+	height: 100%;
+}
+.controls-toggle:hover {
+	background-color: white;
+	fill: black;
+}
+.controls-toggle:active {
+	background-color: white;
+	fill: black;
+	opacity: .5;
 }
 .controls {
 	position: absolute;
-	bottom: 10px;
-	left: 10px;
+	top: 0;
+	left: 0;
 	gap: 10px;
-	background-color: black;
+	height: 100vh;
+	background-color: rgba(0,0,0,.8);
 	padding: 10px;
-	display: grid;
+	display: flex;
+	padding-top: 60px;
+	flex-direction: column;
 	grid-template-columns: 1fr;
 	font-family: 'Arial', sans-serif;
 	font-weight: bold;
 	text-align: center;
 	font-size: 12px;
 	text-transform: uppercase;
-	backdrop-filter: blur(10px);
 	color: white;
-	border: 2px solid white;
+	overflow-y: scroll;
+	border-right: 2px solid white;
+}
+.controls[data-hide="1"] {
+	display: none;
 }
 .controls div {
 	display: flex;
@@ -96,5 +131,6 @@ canvas {
 }
 input[type='number']::-webkit-inner-spin-button, 
 input[type='number']::-webkit-outer-spin-button { 
-    opacity: 1;
+    opacity: 0;
+	display: none;
 }
