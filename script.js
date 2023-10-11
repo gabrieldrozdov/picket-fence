@@ -15,9 +15,9 @@ function setup() {
 
 let offset = 0;
 let properties = {
-	unit: 3,
-	frames: 5,
 	speed: 1,
+	frames: 5,
+	unit: 3,
 	orientation: true,
 	direction: true
 }
@@ -54,22 +54,21 @@ function draw() {
 }
 
 // Update values on input
-function updateValue(property, value) {
-	properties[property] = value;
+let ranges = {
+	speed: [1, 10],
+	frames: [2, 10],
+	unit: [1, 10]
 }
-
-// Prevent typing out of range
-function imposeMinMax(e){
-	if (e.value != "") {
-		if (parseInt(e.value) < parseInt(e.min)){
-			e.value = e.min;
-		}
-		if (parseInt(e.value) > parseInt(e.max)){
-			e.value = e.max;
-		}
-	} else {
-		// e.value = e.min;
+function changeProperty(property, value) {
+	properties[property] += value;
+	if (properties[property] < ranges[property][0]) {
+		properties[property] = ranges[property][0];
+	} else if (properties[property] > ranges[property][1]) {
+		properties[property] = ranges[property][1];
 	}
+	let group = document.querySelector("#" + property);
+	let label = group.querySelector('.input-number-txt');
+	label.innerText = properties[property];
 }
 
 // Flip orientation
@@ -104,32 +103,3 @@ function toggleControls() {
 		controls.dataset.hide = 1;
 	}
 }
-
-// window.addEventListener( 
-// 	'click', async function () { 
-
-// 		let features = { 
-// 			audio: false, 
-// 			video: { 
-// 				width: { ideal: 1280 }, 
-// 				height: { ideal: 1080 } 
-// 			} 
-// 		}; 
-
-// 		let display = await navigator.mediaDevices 
-// 			.getUserMedia(features); 
-
-// 		// Returns a sequence of MediaStreamTrack objects  
-// 		// representing the video tracks in the stream 
-
-// 		let settings = display.getVideoTracks()[0] 
-// 			.getSettings(); 
-
-// 		let width = settings.width; 
-// 		let height = settings.height; 
-
-// 		console.log('Actual width of the camera video: ' 
-// 			+ width + 'px'); 
-// 		console.log('Actual height of the camera video:' 
-// 			+ height + 'px'); 
-// 	}); 

@@ -22,11 +22,11 @@ body {
 	justify-content: center;
 }
 canvas {
-	/* width: 100% !important;
+	width: 100% !important;
 	height: 100% !important;
 	object-fit: cover;
 	max-height: 100%;
-	max-width: 100%; */
+	max-width: 100%;
 }
 .controls-toggle {
 	position: absolute;
@@ -74,15 +74,16 @@ canvas {
 	color: white;
 	overflow-y: scroll;
 	border-right: 2px solid white;
+	width: 200px;
 }
 .controls[data-hide="1"] {
 	display: none;
 }
-.controls div {
+.input-group {
 	display: flex;
 	flex-direction: column;
 }
-.controls label {
+.input-label {
 	font-size: 12px;
 	text-transform: uppercase;
 	background-color: white;
@@ -92,45 +93,72 @@ canvas {
 	white-space: nowrap;
 	width: 100%;
 }
-.controls input {
-	border: 2px solid white;
-	color: white;
-	background-color: black;
-	height: 30px;
+.input-number {
 	font-size: 18px;
-	padding: 4.5px 20px 5px 20px;
-	font-family: 'Arial Narrow', sans-serif;
-	font-weight: bold;
-	text-align: center;
-	border-radius: 0;
+	border: 2px solid white;
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+	gap: 2px;
+	background-color: white;
+	height: 30px;
+}
+.input-number-txt {
+	flex-grow: 1;
+	background-color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	line-height: 1em;
+	padding: 6px 20px 5px 20px;
+}
+.input-number-btn {
+	height: 100%;
+	aspect-ratio: 1/1;
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+	border: unset;
+	fill: white;
+	padding: 2px;
+	cursor: pointer;
+}
+.input-number-btn:hover {
+	background-color: white;
+	fill: black;
+}
+.input-number-btn:active {
+	background-color: rgba(0,0,0,.5);
+	fill: black;
+	opacity: .5;
+}
+.input-number-btn svg {
+	height: 100%;
 }
 .controls input:focus {
 	outline: unset;
 }
-.controls button {
+.input-btn {
 	border: 2px solid white;
 	color: white;
 	background-color: black;
 	height: 30px;
 	font-size: 18px;
-	padding: 4.5px 20px 5px 20px;
+	padding: 4px 20px 5px 20px;
 	font-family: 'Arial Narrow', sans-serif;
 	font-weight: bold;
 	text-align: center;
 	border-radius: 0;
 	line-height: 1em;
 	cursor: pointer;
+	height: 30px;
 }
-.controls button:hover {
+.input-btn:hover {
 	background-color: white;
 	color: black;
 }
-.controls button:active {
+.input-btn:active {
 	opacity: .5;
-}
-input[type='number']::-webkit-inner-spin-button, 
-input[type='number']::-webkit-outer-spin-button { 
-    opacity: 0;
-	display: none;
 }

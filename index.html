@@ -12,26 +12,50 @@
 		<div class="controls-toggle" onclick="toggleControls()">
 			<svg viewBox="0 0 100 100"><rect x="10" y="25" width="80" height="10"/><rect x="10" y="45" width="80" height="10"/><rect x="10" y="65" width="80" height="10"/></svg>
 		</div>
-		<div class="controls" data-hide="1">
-			<div>
-				<label for="speed">Speed</label>
-				<input type="number" id="speed" name="speed" min="1" max="10" value="1" onchange="updateValue('speed', this.value)" onkeyup="imposeMinMax(this)">
+		<div class="controls" data-hide="0">
+			<div class="input-group">
+				<div class="input-label">Speed</div>
+				<div id="speed" class="input-number">
+					<button class="input-number-btn" onclick="changeProperty('speed', -1)">
+						<svg viewBox="0 0 100 100"><rect x="10" y="45" width="80" height="10"/></svg>
+					</button>
+					<div class="input-number-txt">1</div>
+					<button class="input-number-btn" onclick="changeProperty('speed', 1)">
+						<svg viewBox="0 0 100 100"><rect x="45" y="10" width="10" height="80"/><rect x="10" y="45" width="80" height="10"/></svg>
+					</button>
+				</div>
 			</div>
-			<div>
-				<label for="frames">Total Frames</label>
-				<input type="number" id="frames" name="frames" min="2" max="10" value="5" onchange="updateValue('frames', this.value)" onkeyup="imposeMinMax(this)">
+			<div class="input-group">
+				<div class="input-label">Total Frames</div>
+				<div id="frames" class="input-number">
+					<button class="input-number-btn" onclick="changeProperty('frames', -1)">
+						<svg viewBox="0 0 100 100"><rect x="10" y="45" width="80" height="10"/></svg>
+					</button>
+					<div class="input-number-txt">5</div>
+					<button class="input-number-btn" onclick="changeProperty('frames', 1)">
+						<svg viewBox="0 0 100 100"><rect x="45" y="10" width="10" height="80"/><rect x="10" y="45" width="80" height="10"/></svg>
+					</button>
+				</div>
 			</div>
-			<div>
-				<label for="unit">Line Thickness</label>
-				<input type="number" id="unit" name="unit" min="1" max="10" value="5" onchange="updateValue('unit', this.value)" onkeyup="imposeMinMax(this)">
+			<div class="input-group">
+				<div class="input-label">Line Thickness</div>
+				<div id="unit" class="input-number">
+					<button class="input-number-btn" onclick="changeProperty('unit', -1)">
+						<svg viewBox="0 0 100 100"><rect x="10" y="45" width="80" height="10"/></svg>
+					</button>
+					<div class="input-number-txt">3</div>
+					<button class="input-number-btn"onclick="changeProperty('unit', 1)">
+						<svg viewBox="0 0 100 100"><rect x="45" y="10" width="10" height="80"/><rect x="10" y="45" width="80" height="10"/></svg>
+					</button>
+				</div>
 			</div>
-			<div>
-				<label for="orientation">Orientation</label>
-				<button id="orientation" name="orientation" onclick="flipOrientation();">HORIZONTAL</button>
+			<div class="input-group">
+				<div class="input-label">Orientation</div>
+				<button id="orientation" class="input-btn" onclick="flipOrientation();">HORIZONTAL</button>
 			</div>
-			<div>
-				<label for="scroll-direction">Scroll Direction</label>
-				<button id="scroll-direction" name="scroll-direction" onclick="flipScrollDirection();">FORWARD</button>
+			<div class="input-group">
+				<label class="input-label">Scroll Direction</label>
+				<button id="scroll-direction" class="input-btn" onclick="flipScrollDirection();">FORWARD</button>
 			</div>
 		</div>
 		<div id="parent"></div>
