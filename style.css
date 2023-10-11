@@ -26,7 +26,7 @@ canvas {
 	background-color: black;
 	padding: 10px;
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+	grid-template-columns: 1fr;
 	font-family: 'Arial', sans-serif;
 	font-weight: bold;
 	text-align: center;
@@ -56,21 +56,38 @@ canvas {
 	background-color: black;
 	height: 30px;
 	font-size: 18px;
-	padding: 5px 20px 5px 20px;
+	padding: 4.5px 20px 5px 20px;
 	font-family: 'Arial Narrow', sans-serif;
 	font-weight: bold;
 	text-align: center;
 	border-radius: 0;
+	line-height: 1em;
 }
 .controls input:focus {
 	outline: unset;
 }
+.controls button {
+	border: 2px solid white;
+	color: white;
+	background-color: black;
+	height: 30px;
+	font-size: 18px;
+	padding: 4.5px 20px 5px 20px;
+	font-family: 'Arial Narrow', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 0;
+	line-height: 1em;
+	cursor: pointer;
+}
+.controls button:hover {
+	background-color: white;
+	color: black;
+}
+.controls button:active {
+	opacity: .5;
+}
 input[type='number']::-webkit-inner-spin-button, 
 input[type='number']::-webkit-outer-spin-button { 
     opacity: 1;
-}
-@media only screen and (max-width: 600px) {
-	.controls {
-		grid-template-columns: 1fr;
-	}
 }

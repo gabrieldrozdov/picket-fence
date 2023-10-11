@@ -21,6 +21,14 @@
 			<label for="unit">Line Thickness</label>
 			<input type="number" id="unit" name="unit" min="1" max="10" value="5" onchange="updateValue('unit', this.value)" onkeyup="imposeMinMax(this)">
 		</div>
+		<div>
+			<label for="orientation">Orientation</label>
+			<button id="orientation" name="orientation" onclick="flipOrientation();">FLIP</button>
+		</div>
+		<div>
+			<label for="direction">Direction</label>
+			<button id="direction" name="direction" onclick="flipDirection();">FLIP</button>
+		</div>
 	</div>
 	<div id="parent"></div>
 	
