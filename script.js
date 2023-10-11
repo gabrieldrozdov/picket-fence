@@ -6,8 +6,8 @@ function setup() {
 		video: { facingMode: "environment" },
 		audio: false,
 	});
-	capture.size(1920, 1440);
-	// capture.hide();
+	// capture.size(1920, 1440);
+	capture.hide();
 	canvas.parent('parent');
 	noStroke();
 	fill(0);
@@ -22,7 +22,8 @@ let properties = {
 	direction: true
 }
 function draw() {
-	image(capture, 0, 0, 1920, 1440);
+	background(255);
+	// image(capture, 0, 0, 1920, 1440);
 
 	let direction = 1;
 	if (!properties['direction']) {
