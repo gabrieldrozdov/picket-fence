@@ -8,29 +8,31 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
 </head>
 <body>
-	<div class="controls">
-		<div>
-			<label for="speed">Speed</label>
-			<input type="number" id="speed" name="speed" min="1" max="10" value="1" onchange="updateValue('speed', this.value)" onkeyup="imposeMinMax(this)">
+	<div class="container">
+		<div class="controls">
+			<div>
+				<label for="speed">Speed</label>
+				<input type="number" id="speed" name="speed" min="1" max="10" value="1" onchange="updateValue('speed', this.value)" onkeyup="imposeMinMax(this)">
+			</div>
+			<div>
+				<label for="frames">Total Frames</label>
+				<input type="number" id="frames" name="frames" min="2" max="10" value="5" onchange="updateValue('frames', this.value)" onkeyup="imposeMinMax(this)">
+			</div>
+			<div>
+				<label for="unit">Line Thickness</label>
+				<input type="number" id="unit" name="unit" min="1" max="10" value="5" onchange="updateValue('unit', this.value)" onkeyup="imposeMinMax(this)">
+			</div>
+			<div>
+				<label for="orientation">Orientation</label>
+				<button id="orientation" name="orientation" onclick="flipOrientation();">FLIP</button>
+			</div>
+			<div>
+				<label for="direction">Direction</label>
+				<button id="direction" name="direction" onclick="flipDirection();">FLIP</button>
+			</div>
 		</div>
-		<div>
-			<label for="frames">Total Frames</label>
-			<input type="number" id="frames" name="frames" min="2" max="10" value="5" onchange="updateValue('frames', this.value)" onkeyup="imposeMinMax(this)">
-		</div>
-		<div>
-			<label for="unit">Line Thickness</label>
-			<input type="number" id="unit" name="unit" min="1" max="10" value="5" onchange="updateValue('unit', this.value)" onkeyup="imposeMinMax(this)">
-		</div>
-		<div>
-			<label for="orientation">Orientation</label>
-			<button id="orientation" name="orientation" onclick="flipOrientation();">FLIP</button>
-		</div>
-		<div>
-			<label for="direction">Direction</label>
-			<button id="direction" name="direction" onclick="flipDirection();">FLIP</button>
-		</div>
+		<div id="parent"></div>
 	</div>
-	<div id="parent"></div>
 	
 	<script src="script.js"></script>
 </body>
