@@ -1,21 +1,25 @@
 let canvas;
 
 let message = document.querySelector(".message");
-message.addEventListener('click', start)
-async function start() {
-	message.style.display = "none";
-	navigator.mediaDevices.getUserMedia({
-			video: {
-				facingMode: "environment",
-			},
-			audio: false,
-		}
-	).then((stream) => {
-		let video = document.querySelector('video');
-		video.srcObject = stream;
-		video.play();
-	})
-	message.removeEventListener('click', start)
+message.addEventListener('click', e => start(e))
+async function start(e) {
+	try {
+		message.style.display = "none";
+		navigator.mediaDevices.getUserMedia({
+				video: {
+					facingMode: "environment",
+				},
+				audio: false,
+			}
+		).then((stream) => {
+			let video = document.querySelector('video');
+			video.srcObject = stream;
+			video.play();
+		})
+		message.removeEventListener('click', start)
+	} catch (e) {
+		alert(e);
+	}
 }
 
 function setup() {
