@@ -20,14 +20,15 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	object-fit: contain;
 }
 canvas {
-	/* width: unset !important; */
-	height: 100vmax !important;
-	/* object-fit: cover; */
+	width: unset !important;
+	height: 100% !important;
+	object-fit: contain;
 	/* max-height: 100%;
 	max-width: 100%; */
-	aspect-ratio: 3/4;
+	/* aspect-ratio: 3/4; */
 }
 .controls-toggle {
 	position: absolute;

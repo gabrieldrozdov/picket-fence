@@ -1,12 +1,20 @@
 let capture;
-
+let canvas;
+let dimensions = [1280, 960];
 function setup() {
-	var canvas = createCanvas(720, 1280);
+	if (screen.width < 800) {
+		dimensions = [720, 1280];
+	}
+	canvas = createCanvas(dimensions[0], dimensions[1]);
 	capture = createCapture({
-		video: { facingMode: "environment" },
+		video: {
+			facingMode: "environment",
+			width: { ideal: dimensions[0] },
+			height: { ideal: dimensions[1] },
+		},
 		audio: false,
 	});
-	capture.size(720, 1280);
+	console.log(capture)
 	capture.hide();
 	canvas.parent('parent');
 	noStroke();
@@ -15,15 +23,16 @@ function setup() {
 
 let offset = 0;
 let properties = {
-	speed: 1,
+	speed: 2,
 	frames: 5,
-	unit: 3,
+	unit: 2,
+	margin: 1,
 	orientation: true,
 	direction: true
 }
 function draw() {
 	background(255);
-	image(capture, 0, 0, 720, 1280);
+	image(capture, 0, 0, dimensions[0], dimensions[1]);
 
 	let direction = 1;
 	if (!properties['direction']) {
@@ -38,7 +47,7 @@ function draw() {
 		}
 		// Draw the rectangles
 		for (let i=-width; i<width*2; i++) {
-			rect(offset+i*properties['frames']*properties['unit'], 0, properties['unit']*(properties['frames']-1), height);
+			rect(offset+i*properties['frames']*properties['unit'], dimensions[1]*.1*properties['margin'], properties['unit']*(properties['frames']-1), height-(2*dimensions[1]*.1*properties['margin']));
 		}
 	} else {
 		// Move the rectangles
@@ -48,7 +57,7 @@ function draw() {
 		}
 		// Draw the rectangles
 		for (let i=-width; i<width*2; i++) {
-			rect(0, offset+i*properties['frames']*properties['unit'], width, properties['unit']*(properties['frames']-1));
+			rect(dimensions[0]*.1*properties['margin'], offset+i*properties['frames']*properties['unit'], width-(2*dimensions[0]*.1*properties['margin']), properties['unit']*(properties['frames']-1));
 		}
 	}
 }
@@ -57,7 +66,8 @@ function draw() {
 let ranges = {
 	speed: [1, 10],
 	frames: [2, 10],
-	unit: [1, 10]
+	unit: [1, 10],
+	margin: [0, 2]
 }
 function changeProperty(property, value) {
 	properties[property] += value;
