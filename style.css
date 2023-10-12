@@ -81,6 +81,7 @@ video {
 	border-right: 2px solid white;
 	width: 200px;
 	z-index: 99;
+	touch-action: manipulation;
 }
 .controls[data-hide="1"] {
 	display: none;

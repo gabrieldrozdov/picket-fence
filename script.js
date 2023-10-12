@@ -1,8 +1,8 @@
 let canvas;
 
-window.addEventListener('click', start)
-function start() {
-	let message = document.querySelector(".message");
+let message = document.querySelector(".message");
+message.addEventListener('click', start)
+async function start() {
 	message.style.display = "none";
 	navigator.mediaDevices.getUserMedia({
 			video: {
@@ -15,7 +15,7 @@ function start() {
 		video.srcObject = stream;
 		video.play();
 	})
-	window.removeEventListener('click', start)
+	message.removeEventListener('click', start)
 }
 
 function setup() {
