@@ -3,7 +3,7 @@ let canvas;
 let dimensions = [1280, 960];
 function setup() {
 	if (screen.width < 800) {
-		dimensions = [1280, 720];
+		dimensions = [720, 1280];
 	}
 	canvas = createCanvas(dimensions[0], dimensions[1]);
 	capture = createCapture({
