@@ -14,7 +14,7 @@ async function start(e) {
 		).then((stream) => {
 			let video = document.querySelector('video');
 			video.srcObject = stream;
-			video.play();
+			// video.play();
 		})
 		message.removeEventListener('click', start)
 	} catch (e) {
