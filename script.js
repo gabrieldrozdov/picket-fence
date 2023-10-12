@@ -14,7 +14,6 @@ function setup() {
 		},
 		audio: false,
 	});
-	console.log(capture)
 	capture.hide();
 	canvas.parent('parent');
 	noStroke();
