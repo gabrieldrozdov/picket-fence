@@ -2,15 +2,12 @@ let capture;
 let canvas;
 let dimensions = [1280, 960];
 function setup() {
-	if (screen.width < 800) {
-		dimensions = [720, 1280];
-	}
-	canvas = createCanvas(dimensions[0], dimensions[1]);
+	canvas = createCanvas(displayWidth, displayHeight);
 	capture = createCapture({
 		video: {
 			facingMode: "environment",
-			width: { ideal: dimensions[0] },
-			height: { ideal: dimensions[1] },
+			width: { ideal: displayWidth },
+			height: { ideal: displayHeight },
 		},
 		audio: false,
 	});
@@ -31,11 +28,7 @@ let properties = {
 }
 function draw() {
 	background(255);
-	if (screen.width < 800) {
-		image(capture, 0, 0, dimensions[1], dimensions[0]);
-	} else {
-		image(capture, 0, 0, dimensions[0], dimensions[1]);
-	}
+	image(capture, 0, 0);
 
 	let direction = 1;
 	if (!properties['direction']) {
