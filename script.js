@@ -1,6 +1,4 @@
-let capture;
-let canvas;
-let dimensions = [1280, 960];
+let capture, canvas;
 function setup() {
 	canvas = createCanvas(displayWidth, displayHeight);
 	capture = createCapture({
@@ -43,7 +41,7 @@ function draw() {
 		}
 		// Draw the rectangles
 		for (let i=-width; i<width*2; i++) {
-			rect(offset+i*properties['frames']*properties['unit'], dimensions[1]*.1*properties['margin'], properties['unit']*(properties['frames']-1), height-(2*dimensions[1]*.1*properties['margin']));
+			rect(offset+i*properties['frames']*properties['unit'], displayHeight*.1*properties['margin'], properties['unit']*(properties['frames']-1), height-(2*displayHeight*.1*properties['margin']));
 		}
 	} else {
 		// Move the rectangles
@@ -53,7 +51,7 @@ function draw() {
 		}
 		// Draw the rectangles
 		for (let i=-width; i<width*2; i++) {
-			rect(dimensions[0]*.1*properties['margin'], offset+i*properties['frames']*properties['unit'], width-(2*dimensions[0]*.1*properties['margin']), properties['unit']*(properties['frames']-1));
+			rect(displayWidth*.1*properties['margin'], offset+i*properties['frames']*properties['unit'], width-(2*displayWidth*.1*properties['margin']), properties['unit']*(properties['frames']-1));
 		}
 	}
 }
