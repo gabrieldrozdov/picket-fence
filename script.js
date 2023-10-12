@@ -1,15 +1,23 @@
-let capture, canvas;
+let canvas;
+
+window.addEventListener('click', start)
+function start() {
+	navigator.mediaDevices.getUserMedia({
+			video: {
+				facingMode: "environment",
+			},
+			audio: false,
+		}
+	).then((stream) => {
+		let videoElement = document.querySelector('#video');
+		videoElement.srcObject = stream;
+		videoElement.play();
+	})
+	window.removeEventListener('click', start)
+}
+
 function setup() {
-	canvas = createCanvas(displayWidth, displayHeight);
-	capture = createCapture({
-		video: {
-			facingMode: "environment",
-			width: { ideal: displayWidth },
-			height: { ideal: displayHeight },
-		},
-		audio: false,
-	});
-	capture.hide();
+	canvas = createCanvas(windowWidth, windowHeight);
 	canvas.parent('parent');
 	noStroke();
 	fill(0);
@@ -25,8 +33,7 @@ let properties = {
 	direction: true
 }
 function draw() {
-	background(255);
-	image(capture, 0, 0);
+	clear();
 
 	let direction = 1;
 	if (!properties['direction']) {
@@ -41,7 +48,7 @@ function draw() {
 		}
 		// Draw the rectangles
 		for (let i=-width; i<width*2; i++) {
-			rect(offset+i*properties['frames']*properties['unit'], displayHeight*.1*properties['margin'], properties['unit']*(properties['frames']-1), height-(2*displayHeight*.1*properties['margin']));
+			rect(offset+i*properties['frames']*properties['unit'], windowHeight*.1*properties['margin'], properties['unit']*(properties['frames']-1), height-(2*windowHeight*.1*properties['margin']));
 		}
 	} else {
 		// Move the rectangles
@@ -51,9 +58,13 @@ function draw() {
 		}
 		// Draw the rectangles
 		for (let i=-width; i<width*2; i++) {
-			rect(displayWidth*.1*properties['margin'], offset+i*properties['frames']*properties['unit'], width-(2*displayWidth*.1*properties['margin']), properties['unit']*(properties['frames']-1));
+			rect(windowWidth*.1*properties['margin'], offset+i*properties['frames']*properties['unit'], width-(2*windowWidth*.1*properties['margin']), properties['unit']*(properties['frames']-1));
 		}
 	}
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }
 
 // Update values on input
