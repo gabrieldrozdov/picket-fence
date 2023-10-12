@@ -2,6 +2,8 @@ let canvas;
 
 window.addEventListener('click', start)
 function start() {
+	let message = document.querySelector(".message");
+	message.style.display = "none";
 	navigator.mediaDevices.getUserMedia({
 			video: {
 				facingMode: "environment",
@@ -9,9 +11,9 @@ function start() {
 			audio: false,
 		}
 	).then((stream) => {
-		let videoElement = document.querySelector('#video');
-		videoElement.srcObject = stream;
-		videoElement.play();
+		let video = document.querySelector('video');
+		video.srcObject = stream;
+		video.play();
 	})
 	window.removeEventListener('click', start)
 }

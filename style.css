@@ -31,6 +31,7 @@ video {
 	left: 0;
 	width: 100%;
 	height: 100%;
+	object-fit: cover;
 }
 .controls-toggle {
 	position: absolute;
@@ -166,4 +167,22 @@ video {
 }
 .input-btn:active {
 	opacity: .5;
+}
+.message {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100dvh;
+	background-color: white;
+	color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	padding: 20px;
+	z-index: 9999;
+	font-family: 'Arial Narrow', sans-serif;
+	text-align: center;
+	cursor: pointer;
 }
