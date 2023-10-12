@@ -33,7 +33,7 @@ let offset = 0;
 let properties = {
 	speed: 2,
 	frames: 4,
-	unit: 2,
+	unit: 1,
 	margin: 1,
 	orientation: true,
 	direction: true,
@@ -82,7 +82,7 @@ function windowResized() {
 
 // Update values on input
 let ranges = {
-	speed: [1, 10],
+	speed: [0, 10],
 	frames: [2, 10],
 	unit: [1, 10],
 	margin: [0, 2]
