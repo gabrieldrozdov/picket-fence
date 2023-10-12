@@ -1,3 +1,5 @@
+"use strict";
+
 let canvas;
 
 let message = document.querySelector(".message");
@@ -14,7 +16,6 @@ async function start(e) {
 		).then((stream) => {
 			let video = document.querySelector('video');
 			video.srcObject = stream;
-			// video.play();
 		})
 		message.removeEventListener('click', start)
 	} catch (e) {
