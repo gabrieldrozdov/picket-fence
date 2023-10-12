@@ -31,7 +31,11 @@ let properties = {
 }
 function draw() {
 	background(255);
-	image(capture, 0, 0, dimensions[0], dimensions[1]);
+	if (screen.width < 800) {
+		image(capture, 0, 0, dimensions[1], dimensions[0]);
+	} else {
+		image(capture, 0, 0, dimensions[0], dimensions[1]);
+	}
 
 	let direction = 1;
 	if (!properties['direction']) {
