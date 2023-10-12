@@ -16,16 +16,13 @@ body {
 #parent {
 	width: 100vw;
 	height: 100dvh;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	object-fit: contain;
 }
 canvas {
 	width: 100% !important;
 	height: 100% !important;
-	object-fit: contain;
+	aspect-ratio: unset !important;
+	object-fit: contain !important;
+	min-height: 100%;
 }
 .controls-toggle {
 	position: absolute;
