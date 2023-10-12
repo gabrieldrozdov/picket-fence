@@ -27,17 +27,17 @@ function setup() {
 	canvas = createCanvas(windowWidth, windowHeight);
 	canvas.parent('parent');
 	noStroke();
-	fill(0);
 }
 
 let offset = 0;
 let properties = {
 	speed: 2,
-	frames: 5,
+	frames: 4,
 	unit: 2,
 	margin: 1,
 	orientation: true,
-	direction: true
+	direction: true,
+	color: true
 }
 function draw() {
 	clear();
@@ -45,6 +45,12 @@ function draw() {
 	let direction = 1;
 	if (!properties['direction']) {
 		direction = -1;
+	}
+
+
+	fill(255);
+	if (properties['color']) {
+		fill(0);
 	}
 
 	if (properties['orientation']) {
@@ -114,6 +120,17 @@ function flipScrollDirection() {
 		scrollDirectionBtn.innerText = 'FORWARD';
 	}
 	properties['direction'] = !properties['direction'];
+}
+
+// Switch color
+let colorBtn = document.querySelector('#color');
+function switchColor() {
+	if (properties['color']) {
+		colorBtn.innerText = 'WHITE';
+	} else {
+		colorBtn.innerText = 'BLACK';
+	}
+	properties['color'] = !properties['color'];
 }
 
 // Toggle controls
