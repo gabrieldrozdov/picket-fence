@@ -208,3 +208,25 @@ video {
 .message div:active {
 	opacity: .5;
 }
+.desc {
+	font-size: 14px;
+	text-align: left;
+}
+.desc a {
+	background-color: white;
+	color: black;
+	display: block;
+	text-decoration: none;
+	padding: 4px 20px 5px 20px;
+	margin-top: 10px;
+	text-align: center;
+	border: 2px solid white;
+	font-size: 18px;
+}
+.desc a:hover {
+	background-color: black;
+	color: white;
+}
+.desc a:active {
+	opacity: .5;
+}
